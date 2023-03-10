@@ -13,9 +13,10 @@
 		2A36029729B8652800D508F3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A36029529B8652800D508F3 /* Main.storyboard */; };
 		2A36029929B8652900D508F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A36029829B8652900D508F3 /* Assets.xcassets */; };
 		2A36029C29B8652900D508F3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A36029A29B8652900D508F3 /* LaunchScreen.storyboard */; };
-		2A3602A729B8652900D508F3 /* ToDoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3602A629B8652900D508F3 /* ToDoTests.swift */; };
 		2A3602B129B8652900D508F3 /* ToDoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3602B029B8652900D508F3 /* ToDoUITests.swift */; };
 		2A3602B329B8652900D508F3 /* ToDoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3602B229B8652900D508F3 /* ToDoUITestsLaunchTests.swift */; };
+		2A3EEB1429BB01CD00EB680F /* ToDoItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3EEB1329BB01CD00EB680F /* ToDoItemTests.swift */; };
+		2A3EEB1629BB02A500EB680F /* ToDoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3EEB1529BB02A500EB680F /* ToDoItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,10 +46,11 @@
 		2A36029B29B8652900D508F3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2A36029D29B8652900D508F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2A3602A229B8652900D508F3 /* ToDoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ToDoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		2A3602A629B8652900D508F3 /* ToDoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoTests.swift; sourceTree = "<group>"; };
 		2A3602AC29B8652900D508F3 /* ToDoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ToDoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A3602B029B8652900D508F3 /* ToDoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoUITests.swift; sourceTree = "<group>"; };
 		2A3602B229B8652900D508F3 /* ToDoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		2A3EEB1329BB01CD00EB680F /* ToDoItemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoItemTests.swift; sourceTree = "<group>"; };
+		2A3EEB1529BB02A500EB680F /* ToDoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				2A36029829B8652900D508F3 /* Assets.xcassets */,
 				2A36029A29B8652900D508F3 /* LaunchScreen.storyboard */,
 				2A36029D29B8652900D508F3 /* Info.plist */,
+				2A3EEB1529BB02A500EB680F /* ToDoItem.swift */,
 			);
 			path = ToDo;
 			sourceTree = "<group>";
@@ -113,7 +116,7 @@
 		2A3602A529B8652900D508F3 /* ToDoTests */ = {
 			isa = PBXGroup;
 			children = (
-				2A3602A629B8652900D508F3 /* ToDoTests.swift */,
+				2A3EEB1329BB01CD00EB680F /* ToDoItemTests.swift */,
 			);
 			path = ToDoTests;
 			sourceTree = "<group>";
@@ -260,6 +263,7 @@
 			files = (
 				2A36029429B8652800D508F3 /* ViewController.swift in Sources */,
 				2A36029029B8652800D508F3 /* AppDelegate.swift in Sources */,
+				2A3EEB1629BB02A500EB680F /* ToDoItem.swift in Sources */,
 				2A36029229B8652800D508F3 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -268,7 +272,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2A3602A729B8652900D508F3 /* ToDoTests.swift in Sources */,
+				2A3EEB1429BB01CD00EB680F /* ToDoItemTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
