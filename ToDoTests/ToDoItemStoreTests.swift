@@ -20,5 +20,8 @@ final class ToDoItemStoreTests: XCTestCase {
 
   func test_add_shouldPublishChange() {
     let sut = ToDoItemStore()
+    let publishExpectation = expectation(description: "Wait for publisher in \(#file)")
+    var receivedItems: [ToDoItem] = []
+    let token = sut.itemPublisher
   }
 }
