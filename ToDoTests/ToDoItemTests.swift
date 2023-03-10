@@ -27,12 +27,13 @@ final class ToDoItemTests: XCTestCase {
     _ = ToDoItem(title: "Dummy", itemDescription: "Dummy Description")
   }
   
-  func test_init_setsTimestamp() {
+  func test_init_setsTimestamp() throws {
     let dummyTimestamp: TimeInterval = 42.0
     let item = ToDoItem(title: "Dummy",
                         timestamp: dummyTimestamp)
+    let timestamp = try XCTUnwrap(item.timestamp)
     // can't compare optional values
-    XCTAssertEqual(item.timestamp!, dummyTimestamp, accuracy: 0.000_001)
+    XCTAssertEqual(timestamp, dummyTimestamp, accuracy: 0.000_001)
   }
 
 }
