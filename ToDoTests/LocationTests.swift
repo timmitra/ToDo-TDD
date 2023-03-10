@@ -26,4 +26,9 @@ final class LocationTests: XCTestCase {
     XCTAssertEqual(resultsCoordinate.latitude, 1, accuracy: 0.000_001)
     XCTAssertEqual(resultsCoordinate.longitude, 2, accuracy: 0.000_001)
   }
+  
+  func test_init_setsName() {
+    let location = Location(name: "Dummy")
+    XCTAssertEqual(location.name, "Dummy")
+  }
 }
