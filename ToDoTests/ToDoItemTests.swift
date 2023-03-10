@@ -18,13 +18,21 @@ final class ToDoItemTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-  func test_init_takesTitle() {
+  func test_init_whenGivenTitle_setsTitle() {
     let item = ToDoItem(title: "Dummy")
-    XCTAssertNotNil(item, "item should not be nil")
+    XCTAssertEqual(item.title, "Dummy")
   }
   
   func test_init_takesTitleAndDescription() {
     _ = ToDoItem(title: "Dummy", itemDescription: "Dummy Description")
+  }
+  
+  func test_init_setsTimestamp() {
+    let dummyTimestamp: TimeInterval = 42.0
+    let item = ToDoItem(title: "Dummy",
+                        timestamp: dummyTimestamp)
+    // can't compare optional values
+    XCTAssertEqual(item.timestamp!, dummyTimestamp, accuracy: 0.000_001)
   }
 
 }
