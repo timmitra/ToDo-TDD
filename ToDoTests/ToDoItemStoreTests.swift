@@ -7,6 +7,7 @@
 
 import XCTest
 @testable import ToDo
+import Combine
 
 final class ToDoItemStoreTests: XCTestCase {
 
@@ -23,5 +24,15 @@ final class ToDoItemStoreTests: XCTestCase {
     let publishExpectation = expectation(description: "Wait for publisher in \(#file)")
     var receivedItems: [ToDoItem] = []
     let token = sut.itemPublisher
+      .dropFirst()
+      .sink { items in
+        receivedItems = items
+        publishExpectation.fulfill()
+      }
+    let todoItem = ToDoItem(title: "Dummy")
+    sut.add(todoItem)
+    wait(for: [publishExpectation], timeout: 1)
+    token.cancel()
+    XCTAssertEqual(receivedItems.first?.title, todoItem.title)
   }
 }
