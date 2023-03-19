@@ -14,11 +14,17 @@ final class ToDoItemStoreTests: XCTestCase {
   var sut: ToDoItemStore!
 
     override func setUpWithError() throws {
-        sut = ToDoItemStore()
+        sut = ToDoItemStore(fileName: "dummy_store")
     }
 
     override func tearDownWithError() throws {
-        sut = ToDoItemStore()
+        sut = nil
+      if let url = FileManager.default
+        .urls(for: .documentDirectory, in: .userDomainMask)
+        .first?
+        .appendingPathComponent("dummy_store") {
+        try? FileManager.default.removeItem(at: url)
+      }
     }
 
   func test_add_shouldPublishChange() throws {
@@ -42,7 +48,7 @@ final class ToDoItemStoreTests: XCTestCase {
   }
   
   func test_init_shouldLoadPreviousToDoItems() throws {
-    try XCTSkipIf(true, "Just test Coordinate Change")
+   // try XCTSkipIf(true, "Just test Coordinate Change")
     var sut1: ToDoItemStore? = ToDoItemStore(fileName: "dummy_store")
     let publisherExpectation = expectation(description: "Wait for publisher in \(#file)")
     let toDoItem = ToDoItem(title: "Dummy Title")
