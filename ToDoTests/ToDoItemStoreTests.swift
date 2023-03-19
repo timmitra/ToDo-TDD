@@ -13,19 +13,16 @@ final class ToDoItemStoreTests: XCTestCase {
   
   var sut: ToDoItemStore!
 
-    override func setUpWithError() throws {
-        sut = ToDoItemStore(fileName: "dummy_store")
-    }
+  override func setUpWithError() throws {
+    sut = ToDoItemStore(fileName: "dummy_store")
+  }
 
-    override func tearDownWithError() throws {
-        sut = nil
-      if let url = FileManager.default
-        .urls(for: .documentDirectory, in: .userDomainMask)
-        .first?
-        .appendingPathComponent("dummy_store") {
-        try? FileManager.default.removeItem(at: url)
-      }
-    }
+  override func tearDownWithError() throws {
+    sut = nil
+    let url = FileManager.default
+      .documentsURL(name: "dummy_store")
+    try? FileManager.default.removeItem(at: url)
+  }
 
   func test_add_shouldPublishChange() throws {
     let todoItem = ToDoItem(title: "Dummy")
