@@ -62,6 +62,25 @@ final class ToDoItemStoreTests: XCTestCase {
     token.cancel()
     XCTAssertEqual(result, [toDoItem])
   }
+  
+  func test_init_whenItemIsChecked_shouldLoadPreviousToDoItems() {
+    var sut1: ToDoItemStore? = ToDoItemStore(fileName: "dummy_store")
+    let publisherExpectation = expectation(description: "Wait for publisher \(#file)")
+    let toDoItem = ToDoItem(title: "Dummy Title")
+    sut1?.add(toDoItem)
+    sut1?.check(toDoItem)
+    sut1 = nil
+    let sut2 = ToDoItemStore(fileName: "dummy_store")
+    var result: [ToDoItem]?
+    let token = sut2.itemPublisher
+      .sink{ value in
+        result = value
+        publisherExpectation.fulfill()
+      }
+    wait(for: [publisherExpectation], timeout: 1)
+    token.cancel()
+    XCTAssertEqual(result?.first?.done, true)
+  }
 }
 
 extension XCTestCase {
