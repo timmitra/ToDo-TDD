@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A3403D429C6B6970086701C /* Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3403D329C6B6970086701C /* Coordinate.swift */; };
 		2A36029029B8652800D508F3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A36028F29B8652800D508F3 /* AppDelegate.swift */; };
 		2A36029229B8652800D508F3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A36029129B8652800D508F3 /* SceneDelegate.swift */; };
 		2A36029429B8652800D508F3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A36029329B8652800D508F3 /* ViewController.swift */; };
@@ -41,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2A3403D329C6B6970086701C /* Coordinate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinate.swift; sourceTree = "<group>"; };
 		2A36028C29B8652800D508F3 /* ToDo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A36028F29B8652800D508F3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2A36029129B8652800D508F3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 				2A3EEB1529BB02A500EB680F /* ToDoItem.swift */,
 				2A3EEB1729BBAC0200EB680F /* Location.swift */,
 				2A3EEB1D29BBF15700EB680F /* ToDoItemStore.swift */,
+				2A3403D329C6B6970086701C /* Coordinate.swift */,
 			);
 			path = ToDo;
 			sourceTree = "<group>";
@@ -273,6 +276,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A3403D429C6B6970086701C /* Coordinate.swift in Sources */,
 				2A36029429B8652800D508F3 /* ViewController.swift in Sources */,
 				2A36029029B8652800D508F3 /* AppDelegate.swift in Sources */,
 				2A3EEB1829BBAC0200EB680F /* Location.swift in Sources */,

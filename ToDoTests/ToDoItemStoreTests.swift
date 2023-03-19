@@ -40,6 +40,25 @@ final class ToDoItemStoreTests: XCTestCase {
     let doneItems = receivedItems.filter({ $0.done })
     XCTAssertEqual(doneItems, [todoItem])
   }
+  
+  func test_init_shouldLoadPreviousToDoItems() throws {
+    try XCTSkipIf(true, "Just test Coordinate Change")
+    var sut1: ToDoItemStore? = ToDoItemStore(fileName: "dummy_store")
+    let publisherExpectation = expectation(description: "Wait for publisher in \(#file)")
+    let toDoItem = ToDoItem(title: "Dummy Title")
+    sut1?.add(toDoItem)
+    sut1 = nil
+    let sut2 = ToDoItemStore(fileName: "dummy_store")
+    var result: [ToDoItem]?
+    let token = sut2.itemPublisher
+      .sink { value in
+        result = value
+        publisherExpectation.fulfill()
+      }
+    wait(for: [publisherExpectation], timeout: 1)
+    token.cancel()
+    XCTAssertEqual(result, [toDoItem])
+  }
 }
 
 extension XCTestCase {
