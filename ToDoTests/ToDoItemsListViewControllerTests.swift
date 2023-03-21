@@ -13,11 +13,17 @@ final class ToDoItemsListViewControllerTests: XCTestCase {
   var sut: ToDoItemsListViewController!
 
     override func setUpWithError() throws {
+      let storyboard = UIStoryboard(name: "Main", bundle: nil)
+      sut = try XCTUnwrap(storyboard.instantiateInitialViewController() as? ToDoItemsListViewController)
+      sut.loadViewIfNeeded()
     }
 
     override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        
+      sut = nil
     }
 
-
+  func test_shouldBeSetup() {
+    XCTAssertNotNil(sut)
+  }
 }
