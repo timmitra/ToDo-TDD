@@ -7,10 +7,10 @@
 
 import Foundation
 import Combine
-
 @testable import ToDo
-class ToDoItemStoreProtocolMock: ToDoItemStoreProtocoal {
-  var itemPublisher = CurrentValueSubject<[ToDoItem], Never([])
+
+class ToDoItemStoreProtocolMock: ToDoItemStoreProtocol {
+  var itemPublisher = CurrentValueSubject<[ToDoItem], Never>([])
   var checkLastCallArgument: ToDoItem?
   func check(_ item: ToDoItem) {
     checkLastCallArgument = item
