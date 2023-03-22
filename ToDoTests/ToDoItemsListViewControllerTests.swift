@@ -26,4 +26,8 @@ final class ToDoItemsListViewControllerTests: XCTestCase {
   func test_shouldBeSetup() {
     XCTAssertNotNil(sut)
   }
+  
+  func test_shouldHaveTableView() {
+    XCTAssertTrue(sut.tableView.isDescendant(of: sut.view))
+  }
 }

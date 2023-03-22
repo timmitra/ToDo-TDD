@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-class ToDoItemStore {
+class ToDoItemStore: ToDoItemStoreProtocol {
   /* <[ToDoItem], Never> means that the publisher sends arrays of ToDoItems. The second part, Never, is the failure type of this publisher. Never means that this publisher cannot fail. */
   var itemPublisher = CurrentValueSubject<[ToDoItem], Never>([])
   private let fileName: String
@@ -60,4 +60,10 @@ class ToDoItemStore {
       print("error: \(error)")
     }
   }
+}
+
+protocol ToDoItemStoreProtocol {
+  var itemPublisher: CurrentValueSubject<[ToDoItem], Never>
+  { get set }
+  func check(_: ToDoItem)
 }
