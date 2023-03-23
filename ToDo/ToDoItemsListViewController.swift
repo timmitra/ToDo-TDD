@@ -14,6 +14,7 @@ class ToDoItemsListViewController: UIViewController {
   var toDoItemStore: ToDoItemStoreProtocol?
   private var items: [ToDoItem] = []
   private var token: AnyCancellable?
+  let dateFormatter = DateFormatter()
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -22,7 +23,13 @@ class ToDoItemsListViewController: UIViewController {
       .sink(receiveValue: { [weak self] items in
         self?.items = items
       })
+    tableView.register(
+      ToDoItemCell.self,
+      forCellReuseIdentifier: "ToDoItemCell"
+    )
   }
+  
+  
 }
 
 extension ToDoItemsListViewController: UITableViewDelegate {
@@ -31,8 +38,22 @@ extension ToDoItemsListViewController: UITableViewDelegate {
     return items.count
   }
   
-  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    return UITableViewCell()
-  }
+  func tableView(
+    _ tableView: UITableView,
+    cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+      let cell = tableView.dequeueReusableCell(
+        withIdentifier: "ToDoItemCell",
+        for: indexPath
+      ) as! ToDoItemCell
+      let item = items[indexPath.row]
+      cell.titleLabel.text = item.title
+      if let timestamp = item.timestamp {
+        let date = Date(timeIntervalSince1970: timestamp)
+        cell.dateLabel.text = dateFormatter.string(from: date)
+      }
+      return cell
+    }
+  
+  
 }
 
