@@ -39,7 +39,7 @@ final class ToDoItemsListViewControllerTests: XCTestCase {
       ToDoItem(title: "dummy 1")
     ])
     let result = sut.tableView.numberOfRows(inSection: 0)
-    XCTAssertEqual(result, 0)
+    XCTAssertEqual(result, 1)
   }
   
   func test_numberOfRows_whenOneItemIsSent_shouldReturnTwo() {
@@ -48,7 +48,7 @@ final class ToDoItemsListViewControllerTests: XCTestCase {
       ToDoItem(title: "dummy 2")
     ])
     let result = sut.tableView.numberOfRows(inSection: 0)
-    XCTAssertEqual(result, 0)
+    XCTAssertEqual(result, 2)
   }
   
   func test_cellForRowAt_shouldReturnCellWithTitle() throws {
