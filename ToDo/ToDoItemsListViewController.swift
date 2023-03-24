@@ -13,7 +13,11 @@ enum Section {
   case done
 }
 
-class ToDoItemsListViewController: UIViewController, UITableViewDelegate {
+protocol ToDoItemsListViewControllerProtocol {
+  func selectToDoItem(_ viewController: UIViewController, item: ToDoItem)
+}
+
+class ToDoItemsListViewController: UIViewController {
 
   @IBOutlet var tableView: UITableView!
   var toDoItemStore: ToDoItemStoreProtocol?
@@ -22,6 +26,7 @@ class ToDoItemsListViewController: UIViewController, UITableViewDelegate {
   let dateFormatter = DateFormatter()
   private var dataSource:
     UITableViewDiffableDataSource<Section, ToDoItem>?
+  var delegate: ToDoItemsListViewControllerProtocol?
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -61,6 +66,13 @@ class ToDoItemsListViewController: UIViewController, UITableViewDelegate {
     snapshot.appendItems(items.filter({ $0.done }),
                          toSection: .done)
     dataSource?.apply(snapshot)
+  }
+}
+
+extension ToDoItemsListViewController: UITableViewDelegate {
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    let item = items[indexPath.row]
+    delegate?.selectToDoItem(self, item: item)
   }
 }
 
