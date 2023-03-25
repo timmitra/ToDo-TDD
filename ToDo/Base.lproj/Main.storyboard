@@ -116,6 +116,9 @@
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Done"/>
+                                <connections>
+                                    <action selector="checkItem:" destination="khP-tL-v2E" eventType="touchUpInside" id="EJT-OA-Hwh"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="73a-qD-Lxz"/>
