@@ -76,4 +76,29 @@ final class ToDoItemDetailsViewControllerTests: XCTestCase {
     sut.toDoItem = toDoItem
     XCTAssertEqual(sut.locationLabel.text, location)
   }
+  
+  func test_settingToDoItem_shouldUpdateMapView() {
+    let latitude = 51.225556
+    let longitude = 6.782778
+    let toDoItem = ToDoItem(
+      title: "dummy title",
+    location: Location(name: "dummy location", coordinate: Coordinate(latitude: latitude, longitude: longitude)))
+    sut.toDoItem = toDoItem
+    let center = sut.mapView.centerCoordinate
+    XCTAssertEqual(center.latitude,latitude, accuracy: 0.000_01)
+    XCTAssertEqual(center.longitude, longitude, accuracy: 0.000_01)
+  }
+  
+  func test_settingToDoItem_shouldUpdateButtonState() {
+    var toDoItem = ToDoItem(title: "dummy title")
+    toDoItem.done = true
+    sut.toDoItem = toDoItem
+    XCTAssertFalse(sut.doneButton.isEnabled)
+  }
+  
+  func test_settingToDoItem_whenItemNotDone_shouldUpdateButtonState() {
+      let toDoItem = ToDoItem(title: "dummy title")
+    sut.toDoItem = toDoItem
+    XCTAssertTrue(sut.doneButton.isEnabled)
+  }
 }
