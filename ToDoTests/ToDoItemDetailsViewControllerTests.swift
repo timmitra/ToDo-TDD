@@ -51,4 +51,29 @@ final class ToDoItemDetailsViewControllerTests: XCTestCase {
     let subview = try XCTUnwrap(sut.doneButton)
     XCTAssertTrue(subview.isDescendant(of: sut.view))
   }
+  
+  func test_settingToDoItem_shouldUpdateTitleLabel() {
+    let title = "dummy title"
+    let toDoItem = ToDoItem(title: title)
+    sut.toDoItem = toDoItem
+    XCTAssertEqual(sut.titleLabel.text, title)
+  }
+  func test_settingToDoItem_shouldUpdateDateLabel() {
+    let date = Date()
+    let toDoItem = ToDoItem(title: "dummy title", timestamp: date.timeIntervalSince1970)
+    sut.toDoItem = toDoItem
+    XCTAssertEqual(sut.dateLabel.text, sut.dateFormatter.string(from: date))
+  }
+  func test_settingToDoItem_shouldUpdateDescriptionLabel() {
+    let description = "dummy discription"
+    let toDoItem = ToDoItem(title: "dummy title", itemDescription: description)
+    sut.toDoItem = toDoItem
+    XCTAssertEqual(sut.descriptionLabel.text, description)
+  }
+  func test_settingToDoItem_shouldUpdateLocationLabel() {
+    let location = "dummy location"
+    let toDoItem = ToDoItem(title: "dummy title", location: Location(name: location))
+    sut.toDoItem = toDoItem
+    XCTAssertEqual(sut.locationLabel.text, location)
+  }
 }
