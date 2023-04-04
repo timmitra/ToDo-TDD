@@ -16,15 +16,18 @@ final class ToDoItemInputViewTests: XCTestCase {
   
   var sut: ToDoItemInputView!
   var toDoItemData: ToDoItemData!
+  var apiClientMock: APIClientMock!
 
     override func setUpWithError() throws {
       toDoItemData = ToDoItemData()
-      sut = ToDoItemInputView(data: toDoItemData)
+      apiClientMock = APIClientMock()
+      sut = ToDoItemInputView(data: toDoItemData, apiClient: apiClientMock)
     }
 
     override func tearDownWithError() throws {
       sut = nil
       toDoItemData = nil
+      apiClientMock = nil
     }
 
   func test_titleInput_shouldSetValueInData() throws {
@@ -72,5 +75,24 @@ final class ToDoItemInputViewTests: XCTestCase {
         .string()
       return label == "Save"
     }))
+  }
+  
+  func test_saveButton_shouldFetchCoordinate() throws {
+    toDoItemData.title = "dummy title"
+    let expected = "dummy address"
+    toDoItemData.addressString = expected
+    try sut
+      .inspect()
+      .find(ViewType.Button.self,
+            where: { view in
+        let label = try view
+          .labelView()
+          .text()
+          .string()
+        return label == "Save"
+      }
+      )
+      .tap()
+    XCTAssertEqual(apiClientMock.coordinateAddress, expected)
   }
 }
