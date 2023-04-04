@@ -10,10 +10,16 @@ import SwiftUI
 struct ToDoItemInputView: View {
   
   @ObservedObject var data: ToDoItemData
-  @State var dummy: String = ""
+  var didAppear: ((Self) -> Void)?
   
     var body: some View {
-      TextField("Title", text: $data.title)
+      VStack{
+        TextField("Title", text: $data.title)
+        Toggle("Add Date", isOn: $data.withDate)
+        if data.withDate {
+          DatePicker("Date", selection: $data.date)
+          }
+      }
     }
 }
 

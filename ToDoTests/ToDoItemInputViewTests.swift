@@ -36,4 +36,39 @@ final class ToDoItemInputViewTests: XCTestCase {
     let input = toDoItemData.title
     XCTAssertEqual(input, expected)
   }
+  
+  func test_whenWithoutDate_shouldNotShowDateInput() {
+    XCTAssertThrowsError(try sut
+      .inspect()
+      .find(ViewType.DatePicker.self)
+    )
+  }
+  
+  func test_whenWithDate_shouldAllowDateInput() throws {
+    let expected = Date()
+    try sut.inspect().find(ViewType.Toggle.self).tap()
+    try sut
+      .inspect()
+      .find(ViewType.DatePicker.self)
+      .select(date: expected)
+    let input = toDoItemData.date
+    XCTAssertEqual(input, expected)
+  }
+  
+  func test_shouldAllowDescriptionInput() throws {
+    let expected = "dummy description"
+    try sut
+      .inspect()
+      .find(ViewType.TextField.self,
+            where: { view in
+        let label = try view
+          .labelView()
+          .text()
+          .string()
+        return label == "Description"
+      })
+      .setInput(expected)
+    let input = toDoItemData.itemDescription
+    XCTAssertEqual(input, expected)
+  }
 }
