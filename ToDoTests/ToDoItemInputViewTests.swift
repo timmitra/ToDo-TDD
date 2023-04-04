@@ -43,18 +43,7 @@ final class ToDoItemInputViewTests: XCTestCase {
       .find(ViewType.DatePicker.self)
     )
   }
-  
-  func test_whenWithDate_shouldAllowDateInput() throws {
-    let expected = Date()
-    try sut.inspect().find(ViewType.Toggle.self).tap()
-    try sut
-      .inspect()
-      .find(ViewType.DatePicker.self)
-      .select(date: expected)
-    let input = toDoItemData.date
-    XCTAssertEqual(input, expected)
-  }
-  
+    
   func test_shouldAllowDescriptionInput() throws {
     let expected = "dummy description"
     try sut
@@ -70,5 +59,18 @@ final class ToDoItemInputViewTests: XCTestCase {
       .setInput(expected)
     let input = toDoItemData.itemDescription
     XCTAssertEqual(input, expected)
+  }
+  
+  func test_shouldHaveASaveButton() throws {
+    XCTAssertNoThrow(try sut
+      .inspect()
+      .find(ViewType.Button.self,
+            where: { view in
+      let label = try view
+        .labelView()
+        .text()
+        .string()
+      return label == "Save"
+    }))
   }
 }

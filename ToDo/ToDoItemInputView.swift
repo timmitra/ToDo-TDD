@@ -13,14 +13,29 @@ struct ToDoItemInputView: View {
   var didAppear: ((Self) -> Void)?
   
     var body: some View {
-      VStack{
-        TextField("Title", text: $data.title)
-        Toggle("Add Date", isOn: $data.withDate)
-        if data.withDate {
-          DatePicker("Date", selection: $data.date)
+      Form {
+        SwiftUI.Section {
+          TextField("Title", text: $data.title)
+          Toggle("Add Date", isOn: $data.withDate)
+          if data.withDate {
+            DatePicker("Date", selection: $data.date)
           }
+        }
+        SwiftUI.Section {
+          TextField("Location name", text: $data.locationName)
+        }
+        SwiftUI.Section {
+          Button(action: addToDoItem,
+                 label: {
+            Text("Save")
+          })
+        }
       }
     }
+  
+  func addToDoItem() {
+    
+  }
 }
 
 struct ToDoItemInputView_Previews: PreviewProvider {
