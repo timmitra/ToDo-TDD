@@ -150,17 +150,10 @@
 				2A36029829B8652900D508F3 /* Assets.xcassets */,
 				2A36029A29B8652900D508F3 /* LaunchScreen.storyboard */,
 				2A36029D29B8652900D508F3 /* Info.plist */,
-				2A3EEB1529BB02A500EB680F /* ToDoItem.swift */,
-				2A3EEB1729BBAC0200EB680F /* Location.swift */,
-				2A3EEB1D29BBF15700EB680F /* ToDoItemStore.swift */,
-				2A3403D329C6B6970086701C /* Coordinate.swift */,
+				2AF8D86B29E51D10008A0CAD /* Model */,
 				2A3403D529C6BFE80086701C /* FileManagerExtension.swift */,
-				2A3403E629C979940086701C /* ToDoItemsListViewController.swift */,
-				2A3403EA29CC01AD0086701C /* ToDoItemCell.swift */,
-				2AB8823929CD60A9009C0284 /* ToDoItemDetailsViewController.swift */,
-				2AB8824029CEBD76009C0284 /* ToDoItemInputView.swift */,
-				2AB8824229CEBDF1009C0284 /* ToDoItemData.swift */,
-				2A566CDE29DBD832007BB380 /* APIClient.swift */,
+				2AF8D86C29E51D3C008A0CAD /* Views */,
+				2AF8D86D29E51D4F008A0CAD /* Networking */,
 			);
 			path = ToDo;
 			sourceTree = "<group>";
@@ -190,6 +183,37 @@
 				2A3602B229B8652900D508F3 /* ToDoUITestsLaunchTests.swift */,
 			);
 			path = ToDoUITests;
+			sourceTree = "<group>";
+		};
+		2AF8D86B29E51D10008A0CAD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2A3EEB1529BB02A500EB680F /* ToDoItem.swift */,
+				2A3EEB1729BBAC0200EB680F /* Location.swift */,
+				2A3EEB1D29BBF15700EB680F /* ToDoItemStore.swift */,
+				2A3403D329C6B6970086701C /* Coordinate.swift */,
+				2AB8824229CEBDF1009C0284 /* ToDoItemData.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2AF8D86C29E51D3C008A0CAD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2A3403E629C979940086701C /* ToDoItemsListViewController.swift */,
+				2A3403EA29CC01AD0086701C /* ToDoItemCell.swift */,
+				2AB8823929CD60A9009C0284 /* ToDoItemDetailsViewController.swift */,
+				2AB8824029CEBD76009C0284 /* ToDoItemInputView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		2AF8D86D29E51D4F008A0CAD /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				2A566CDE29DBD832007BB380 /* APIClient.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
