@@ -44,6 +44,8 @@ struct ToDoItemInputView: View {
             with: data,
             coordinate: coordinate)
         })
+      } else {
+        delegate?.addToDoItem(with: data, coordinate: nil)
       }
   }
 }
