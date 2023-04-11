@@ -12,6 +12,7 @@ struct ToDoItemInputView: View {
   @ObservedObject var data: ToDoItemData
   var didAppear: ((Self) -> Void)?
   let apiClient: APIClientProtocol
+  var delegate: ToDoItemInputViewDelegate?
   
     var body: some View {
       Form {
@@ -35,10 +36,15 @@ struct ToDoItemInputView: View {
     }
   
   func addToDoItem() {
-    apiClient.coordinate(
-      for: data.addressString, completion: { coordinate in
-        
-      })
+      if false == data.addressString.isEmpty {
+        apiClient.coordinate(
+        for: data.addressString,
+           completion: { coordinate in
+          self.delegate?.addToDoItem(
+            with: data,
+            coordinate: coordinate)
+        })
+      }
   }
 }
 
@@ -47,4 +53,8 @@ struct ToDoItemInputView_Previews: PreviewProvider {
       ToDoItemInputView(data: ToDoItemData(), apiClient: APIClient())
         .previewLayout(.sizeThatFits)
     }
+}
+
+protocol ToDoItemInputViewDelegate {
+  func addToDoItem(with: ToDoItemData, coordinate: Coordinate?)
 }
