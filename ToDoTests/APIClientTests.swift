@@ -76,4 +76,23 @@ final class APIClientTests: XCTestCase {
       XCTAssertEqual(nsError, expected)
     }
   }
+  
+  func test_toDoItems_whenJSONIsWrong_shouldFetchedItems() async throws {
+    let url = try XCTUnwrap(URL(string: "foo"))
+    let urlSessionMock = URLSessionProtocolMock()
+    urlSessionMock.dataForDelegateReturnValue = (
+      try JSONEncoder().encode("dummy"),
+      HTTPURLResponse(url: url,
+                      statusCode: 200,
+                     httpVersion: "HTTP/1.1",
+                     headerFields: nil)!
+    )
+    sut.session = urlSessionMock
+    do {
+      _ = try await sut.toDoItems()
+      XCTFail()
+    } catch {
+      XCTAssertTrue(error is Swift.DecodingError)
+    }
+  }
 }

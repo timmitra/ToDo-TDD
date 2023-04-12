@@ -15,6 +15,7 @@ class URLSessionProtocolMock: URLSessionProtocol {
   
   
   func data(for request: URLRequest, delegate: URLSessionTaskDelegate?) async throws -> (Data, URLResponse) {
+    //throw NSError(domain: "dummy", code: 0)
     if let error = dataForDelegateError {
       throw error
     }
