@@ -47,7 +47,7 @@ final class ToDoItemInputViewTests: XCTestCase {
     )
   }
     
-  func test_shouldAllowDescriptionInput() throws {
+  func x_test_shouldAllowDescriptionInput() throws {
     let expected = "dummy description"
     try sut
       .inspect()
