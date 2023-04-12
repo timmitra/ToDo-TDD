@@ -39,6 +39,7 @@
 		2AB8824329CEBDF1009C0284 /* ToDoItemData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB8824229CEBDF1009C0284 /* ToDoItemData.swift */; };
 		2ABD6C9129CEC70D002B57D9 /* ViewInspector in Frameworks */ = {isa = PBXBuildFile; productRef = 2ABD6C9029CEC70D002B57D9 /* ViewInspector */; };
 		2AF8D86F29E51DAF008A0CAD /* APIClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF8D86E29E51DAF008A0CAD /* APIClientTests.swift */; };
+		2AF8D87129E51F70008A0CAD /* GeoCoderProtocolMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF8D87029E51F70008A0CAD /* GeoCoderProtocolMock.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +95,7 @@
 		2AB8824029CEBD76009C0284 /* ToDoItemInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoItemInputView.swift; sourceTree = "<group>"; };
 		2AB8824229CEBDF1009C0284 /* ToDoItemData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoItemData.swift; sourceTree = "<group>"; };
 		2AF8D86E29E51DAF008A0CAD /* APIClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClientTests.swift; sourceTree = "<group>"; };
+		2AF8D87029E51F70008A0CAD /* GeoCoderProtocolMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoCoderProtocolMock.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +177,7 @@
 				2A566CE029DBD90C007BB380 /* APIClientMock.swift */,
 				2A82B5A129E510FD0004984C /* ToDoItemInputViewDelegateMock.swift */,
 				2AF8D86E29E51DAF008A0CAD /* APIClientTests.swift */,
+				2AF8D87029E51F70008A0CAD /* GeoCoderProtocolMock.swift */,
 			);
 			path = ToDoTests;
 			sourceTree = "<group>";
@@ -388,6 +391,7 @@
 				2A3EEB1C29BBF0DB00EB680F /* ToDoItemStoreTests.swift in Sources */,
 				2A3EEB1A29BBEA2900EB680F /* LocationTests.swift in Sources */,
 				2A3EEB1429BB01CD00EB680F /* ToDoItemTests.swift in Sources */,
+				2AF8D87129E51F70008A0CAD /* GeoCoderProtocolMock.swift in Sources */,
 				2A3403E929CAA2AB0086701C /* ToDoItemStoreProtocolMock.swift in Sources */,
 				2A3403E529C9786A0086701C /* ToDoItemsListViewControllerTests.swift in Sources */,
 				2A566CE129DBD90C007BB380 /* APIClientMock.swift in Sources */,
