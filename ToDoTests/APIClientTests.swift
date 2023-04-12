@@ -45,4 +45,21 @@ final class APIClientTests: XCTestCase {
     }
     XCTAssertEqual(geoCoderMock.geocodeAddressString, expectedAddress)
   }
+  
+  func test_toDoItems_shouldFetchedItems() async throws {
+    let url = try XCTUnwrap(URL(string: "http://toodoo.app/items"))
+    let urlSessionMock = URLSessionProtocolMock()
+    let expected = [ToDoItem(title: "dummy title")]
+    urlSessionMock.dataForDelegateReturnValue = (
+      try JSONEncoder().encode(expected),
+      HTTPURLResponse(url: url,
+                      statusCode: 200,
+                     httpVersion: "HTTP/1.1",
+                     headerFields: nil)!
+    )
+    sut.session = urlSessionMock
+    let items = try await sut.toDoItems()
+    XCTAssertEqual(items, expected)
+    XCTAssertEqual(urlSessionMock.dataForDelegateRequest, URLRequest(url: url))
+  }
 }

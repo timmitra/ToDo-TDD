@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A2C832A29E639A10012A956 /* URLSessionProtocolMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2C832929E639A10012A956 /* URLSessionProtocolMock.swift */; };
 		2A3403D429C6B6970086701C /* Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3403D329C6B6970086701C /* Coordinate.swift */; };
 		2A3403D629C6BFE80086701C /* FileManagerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3403D529C6BFE80086701C /* FileManagerExtension.swift */; };
 		2A3403E529C9786A0086701C /* ToDoItemsListViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3403E429C9786A0086701C /* ToDoItemsListViewControllerTests.swift */; };
@@ -60,6 +61,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2A2C832929E639A10012A956 /* URLSessionProtocolMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionProtocolMock.swift; sourceTree = "<group>"; };
 		2A3403D329C6B6970086701C /* Coordinate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinate.swift; sourceTree = "<group>"; };
 		2A3403D529C6BFE80086701C /* FileManagerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerExtension.swift; sourceTree = "<group>"; };
 		2A3403E429C9786A0086701C /* ToDoItemsListViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoItemsListViewControllerTests.swift; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 				2A82B5A129E510FD0004984C /* ToDoItemInputViewDelegateMock.swift */,
 				2AF8D86E29E51DAF008A0CAD /* APIClientTests.swift */,
 				2AF8D87029E51F70008A0CAD /* GeoCoderProtocolMock.swift */,
+				2A2C832929E639A10012A956 /* URLSessionProtocolMock.swift */,
 			);
 			path = ToDoTests;
 			sourceTree = "<group>";
@@ -384,6 +387,7 @@
 			files = (
 				2AB8823F29CEBCDB009C0284 /* ToDoItemInputViewTests.swift in Sources */,
 				2AB8823829CD6026009C0284 /* ToDoItemDetailsViewControllerTests.swift in Sources */,
+				2A2C832A29E639A10012A956 /* URLSessionProtocolMock.swift in Sources */,
 				2AB8823629CD5A01009C0284 /* ToDoItemsListViewControllerProtocolMock.swift in Sources */,
 				2AF8D86F29E51DAF008A0CAD /* APIClientTests.swift in Sources */,
 				2A82B5A229E510FD0004984C /* ToDoItemInputViewDelegateMock.swift in Sources */,
