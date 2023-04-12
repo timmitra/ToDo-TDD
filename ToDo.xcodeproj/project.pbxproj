@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		2A2099CB29E6497100711776 /* AppSetupTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2099CA29E6497100711776 /* AppSetupTests.swift */; };
 		2A2099CD29E64BF100711776 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2099CC29E64BF100711776 /* AppCoordinator.swift */; };
+		2A2099CF29E656B800711776 /* AppCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2099CE29E656B800711776 /* AppCoordinatorTests.swift */; };
+		2A2099D229E6584900711776 /* NavigationControllerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2099D129E6584900711776 /* NavigationControllerMock.swift */; };
 		2A2C832A29E639A10012A956 /* URLSessionProtocolMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2C832929E639A10012A956 /* URLSessionProtocolMock.swift */; };
 		2A3403D429C6B6970086701C /* Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3403D329C6B6970086701C /* Coordinate.swift */; };
 		2A3403D629C6BFE80086701C /* FileManagerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3403D529C6BFE80086701C /* FileManagerExtension.swift */; };
@@ -65,6 +67,8 @@
 /* Begin PBXFileReference section */
 		2A2099CA29E6497100711776 /* AppSetupTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSetupTests.swift; sourceTree = "<group>"; };
 		2A2099CC29E64BF100711776 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		2A2099CE29E656B800711776 /* AppCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinatorTests.swift; sourceTree = "<group>"; };
+		2A2099D129E6584900711776 /* NavigationControllerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationControllerMock.swift; sourceTree = "<group>"; };
 		2A2C832929E639A10012A956 /* URLSessionProtocolMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionProtocolMock.swift; sourceTree = "<group>"; };
 		2A3403D329C6B6970086701C /* Coordinate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinate.swift; sourceTree = "<group>"; };
 		2A3403D529C6BFE80086701C /* FileManagerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerExtension.swift; sourceTree = "<group>"; };
@@ -130,6 +134,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2A2099D029E6582200711776 /* Doubles */ = {
+			isa = PBXGroup;
+			children = (
+				2A3403E829CAA2AB0086701C /* ToDoItemStoreProtocolMock.swift */,
+				2AB8823529CD5A01009C0284 /* ToDoItemsListViewControllerProtocolMock.swift */,
+				2A566CE029DBD90C007BB380 /* APIClientMock.swift */,
+				2A82B5A129E510FD0004984C /* ToDoItemInputViewDelegateMock.swift */,
+				2AF8D87029E51F70008A0CAD /* GeoCoderProtocolMock.swift */,
+				2A2099D129E6584900711776 /* NavigationControllerMock.swift */,
+			);
+			path = Doubles;
+			sourceTree = "<group>";
+		};
 		2A36028329B8652800D508F3 = {
 			isa = PBXGroup;
 			children = (
@@ -176,17 +193,14 @@
 				2A3EEB1929BBEA2900EB680F /* LocationTests.swift */,
 				2A3EEB1B29BBF0DB00EB680F /* ToDoItemStoreTests.swift */,
 				2A3403E429C9786A0086701C /* ToDoItemsListViewControllerTests.swift */,
-				2A3403E829CAA2AB0086701C /* ToDoItemStoreProtocolMock.swift */,
+				2A2099D029E6582200711776 /* Doubles */,
 				2A3403EC29CC0EBE0086701C /* ToDoItemCellTests.swift */,
-				2AB8823529CD5A01009C0284 /* ToDoItemsListViewControllerProtocolMock.swift */,
 				2AB8823729CD6026009C0284 /* ToDoItemDetailsViewControllerTests.swift */,
 				2AB8823E29CEBCDB009C0284 /* ToDoItemInputViewTests.swift */,
-				2A566CE029DBD90C007BB380 /* APIClientMock.swift */,
-				2A82B5A129E510FD0004984C /* ToDoItemInputViewDelegateMock.swift */,
 				2AF8D86E29E51DAF008A0CAD /* APIClientTests.swift */,
-				2AF8D87029E51F70008A0CAD /* GeoCoderProtocolMock.swift */,
 				2A2C832929E639A10012A956 /* URLSessionProtocolMock.swift */,
 				2A2099CA29E6497100711776 /* AppSetupTests.swift */,
+				2A2099CE29E656B800711776 /* AppCoordinatorTests.swift */,
 			);
 			path = ToDoTests;
 			sourceTree = "<group>";
@@ -392,6 +406,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A2099D229E6584900711776 /* NavigationControllerMock.swift in Sources */,
 				2AB8823F29CEBCDB009C0284 /* ToDoItemInputViewTests.swift in Sources */,
 				2A2099CB29E6497100711776 /* AppSetupTests.swift in Sources */,
 				2AB8823829CD6026009C0284 /* ToDoItemDetailsViewControllerTests.swift in Sources */,
@@ -404,6 +419,7 @@
 				2A3EEB1A29BBEA2900EB680F /* LocationTests.swift in Sources */,
 				2A3EEB1429BB01CD00EB680F /* ToDoItemTests.swift in Sources */,
 				2AF8D87129E51F70008A0CAD /* GeoCoderProtocolMock.swift in Sources */,
+				2A2099CF29E656B800711776 /* AppCoordinatorTests.swift in Sources */,
 				2A3403E929CAA2AB0086701C /* ToDoItemStoreProtocolMock.swift in Sources */,
 				2A3403E529C9786A0086701C /* ToDoItemsListViewControllerTests.swift in Sources */,
 				2A566CE129DBD90C007BB380 /* APIClientMock.swift in Sources */,
