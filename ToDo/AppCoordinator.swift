@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 protocol Coordinator {
   func start()
@@ -17,14 +18,15 @@ class AppCoordinator: Coordinator {
   private let navigationController: UINavigationController
   let toDoItemStore: ToDoItemStore
   
-  init(window: UIWindow?, navigationController: UINavigationController = UINavigationController()) {
+  init(window: UIWindow?, navigationController: UINavigationController = UINavigationController(),
+       toDoItemStore: ToDoItemStore = ToDoItemStore()) {
     self.window = window
     self.navigationController = navigationController
+    self.toDoItemStore = toDoItemStore
     let storyboard = UIStoryboard(name: "Main", bundle: nil)
     viewController =
     storyboard.instantiateViewController(
       withIdentifier: "ToDoItemsListViewController")
-    toDoItemStore = ToDoItemStore()
   }
    
   func start() {
@@ -46,7 +48,21 @@ extension AppCoordinator: ToDoItemsListViewControllerProtocol {
     }
     next.loadViewIfNeeded()
     next.toDoItem = item
+    next.toDoItemStore = toDoItemStore
     navigationController.pushViewController(next, animated: true)
   }
   
+  func addToDoItem(_ viewController: UIViewController) {
+    let data = ToDoItemData()
+    let next = UIHostingController(
+      rootView: ToDoItemInputView(data: data, apiClient: APIClient(), delegate: self))
+    viewController.present(next, animated: true)
+  }
+  
+}
+
+extension AppCoordinator:ToDoItemInputViewDelegate {
+  func addToDoItem(with: ToDoItemData, coordinate: Coordinate?) {
+    
+  }
 }
