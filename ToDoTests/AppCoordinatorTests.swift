@@ -6,6 +6,7 @@
 //
 
 import XCTest
+import SwiftUI
 @testable import ToDo
 
 final class AppCoordinatorTests: XCTestCase {
@@ -46,5 +47,35 @@ final class AppCoordinatorTests: XCTestCase {
     sut.selectToDoItem(dummyViewController, item: item)
     let detail = try XCTUnwrap(navigationControllerMock.lastPushedViewController as? ToDoItemDetailsViewController)
     XCTAssertEqual(detail.toDoItem, item)
+  }
+  
+  func test_selectToDoItem_shouldSetItemStore() throws {
+    let dummyViewController = UIViewController()
+    let item = ToDoItem(title: "dummy title")
+    sut.selectToDoItem(dummyViewController, item: item)
+    let detail = try XCTUnwrap(
+      navigationControllerMock.lastPushedViewController
+      as? ToDoItemDetailsViewController)
+    XCTAssertIdentical(
+      detail.toDoItemStore as? ToDoItemStore,
+      sut.toDoItemStore)
+  }
+  
+  func test_addToDoItem_shouldPresentInputView() throws {
+    
+    let viewControllerMock = ViewControllerMock()
+    sut.addToDoItem(viewControllerMock)
+    let lastPresented = try XCTUnwrap(
+      viewControllerMock.lastPresented as? UIHostingController<ToDoItemInputView>)
+    XCTAssertIdentical(lastPresented.rootView.delegate as? AppCoordinator, sut)
+  }
+  
+  func test_addToDoItemWith_shouldCallToDoItemStore() throws {
+    let toDoItemData = ToDoItemData()
+    toDoItemData.title = "dummy title"
+    let receivedItems = try wait(for: sut.toDoItemStore.itemPublisher, afterChange: {
+      sut.addToDoItem(with: toDoItemData, coordinate: nil)
+    })
+    XCTAssertEqual(receivedItems.first?.title, toDoItemData.title)
   }
 }
