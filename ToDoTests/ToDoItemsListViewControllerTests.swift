@@ -121,7 +121,8 @@ final class ToDoItemsListViewControllerTests: XCTestCase {
   
   func test_navigationBarButton_shouldCallDelegate() throws {
     
-    let delegate = delegateMock
+    let delegateMock = ToDoItemsListViewControllerProtocolMock()
+    sut.delegate = delegateMock
     let addButton = sut.navigationItem.rightBarButtonItem
     let target = try XCTUnwrap(addButton?.target)
     let action = try XCTUnwrap(addButton?.action)
