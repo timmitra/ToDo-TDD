@@ -62,7 +62,12 @@ extension AppCoordinator: ToDoItemsListViewControllerProtocol {
 }
 
 extension AppCoordinator:ToDoItemInputViewDelegate {
-  func addToDoItem(with: ToDoItemData, coordinate: Coordinate?) {
-    
+  func addToDoItem(with item: ToDoItemData, coordinate: Coordinate?) {
+    let location = Location(name: item.locationName, coordinate: coordinate)
+    let toDoItem = ToDoItem(title: item.title,
+                            itemDescription: item.itemDescription,
+                            timestamp: item.date.timeIntervalSince1970,
+    location: location)
+    toDoItemStore.add(toDoItem)
   }
 }
