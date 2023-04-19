@@ -15,6 +15,7 @@ enum Section {
 
 protocol ToDoItemsListViewControllerProtocol {
   func selectToDoItem(_ viewController: UIViewController, item: ToDoItem)
+  func addToDoItem(_ viewController: UIViewController)
 }
 
 class ToDoItemsListViewController: UIViewController {
@@ -57,6 +58,9 @@ class ToDoItemsListViewController: UIViewController {
       forCellReuseIdentifier: "ToDoItemCell"
     )
     tableView.delegate = self
+    
+    let addItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(add(_:)))
+    navigationItem.rightBarButtonItem = addItem
   }
   
   private func update(with items: [ToDoItem]) {
@@ -66,6 +70,10 @@ class ToDoItemsListViewController: UIViewController {
     snapshot.appendItems(items.filter({ $0.done }),
                          toSection: .done)
     dataSource?.apply(snapshot)
+  }
+  
+  @objc func add(_ sender: UIBarButtonItem) {
+    delegate?.addToDoItem(self)
   }
 }
 

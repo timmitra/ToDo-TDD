@@ -19,13 +19,16 @@ final class AppCoordinatorTests: XCTestCase {
         window = UIWindow(frame: CGRect(x: 0, y: 0, width: 200, height: 200))
       navigationControllerMock = NavigationControllerMock()
       sut = AppCoordinator(window: window,
-      navigationController: navigationControllerMock)
+      navigationController: navigationControllerMock,
+      toDoItemStore: ToDoItemStore(fileName: "dummy_store"))
     }
 
     override func tearDownWithError() throws {
       sut = nil
       navigationControllerMock = nil
       window = nil
+      let url = FileManager.default.documentsURL(name: "dummy_store")
+      try? FileManager.default.removeItem(at: url)
     }
 
   func test_start_shouldSetDelegate() throws {
